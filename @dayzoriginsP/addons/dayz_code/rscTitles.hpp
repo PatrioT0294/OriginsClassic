@@ -3855,7 +3855,7 @@ class RscTitles
 	};
 	*/
 	
-	/*
+
 	class HotKeys {
 	idd = 7203;
 	movingenable = false;
@@ -3913,9 +3913,29 @@ class RscTitles
 				h = 0.0439838 * safezoneH;
 				colorText[] = {255,255,255,1};
 			};
-			class bg_rifle_1: RLNT_RscText
+			class text_morphine: RLNT_RscText
 			{
 				idc = 1035;
+				text = "6";
+				x = 0.502062 * safezoneW + safezoneX;
+				y = 0.939838 * safezoneH + safezoneY;
+				w = 0.010309 * safezoneW;
+				h = 0.0439838 * safezoneH;
+				colorText[] = {255,255,255,1};
+			};
+			class text_earplugs: RLNT_RscText
+			{
+				idc = 1036;
+				text = "7";
+				x = 0.572163 * safezoneW + safezoneX;
+				y = 0.939838 * safezoneH + safezoneY;
+				w = 0.010309 * safezoneW;
+				h = 0.0439838 * safezoneH;
+				colorText[] = {255,255,255,1};
+			};
+			class bg_rifle_1: RLNT_RscText
+			{
+				idc = 1040;
 				x = 0.108258 * safezoneW + safezoneX;
 				y = 0.928842 * safezoneH + safezoneY;
 				w = 0.0876266 * safezoneW;
@@ -3924,7 +3944,7 @@ class RscTitles
 			};
 			class bg_rifle_2: RLNT_RscText
 			{
-				idc = 1036;
+				idc = 1041;
 				x = 0.200008 * safezoneW + safezoneX;
 				y = 0.928842 * safezoneH + safezoneY;
 				w = 0.0876266 * safezoneW;
@@ -3933,7 +3953,7 @@ class RscTitles
 			};
 			class bg_secondary: RLNT_RscText
 			{
-				idc = 1037;
+				idc = 1042;
 				x = 0.291758 * safezoneW + safezoneX;
 				y = 0.928842 * safezoneH + safezoneY;
 				w = 0.0670085 * safezoneW;
@@ -3942,7 +3962,7 @@ class RscTitles
 			};
 			class bg_painkiller: RLNT_RscText
 			{
-				idc = 1038;
+				idc = 1043;
 				x = 0.361859 * safezoneW + safezoneX;
 				y = 0.928842 * safezoneH + safezoneY;
 				w = 0.0670085 * safezoneW;
@@ -3951,8 +3971,26 @@ class RscTitles
 			};
 			class bg_bandage: RLNT_RscText
 			{
-				idc = 1039;
+				idc = 1044;
 				x = 0.43196 * safezoneW + safezoneX;
+				y = 0.928842 * safezoneH + safezoneY;
+				w = 0.0670085 * safezoneW;
+				h = 0.0659757 * safezoneH;
+				colorBackground[] = {0,0,0,0.4};
+			};
+			class bg_morphine: RLNT_RscText
+			{
+				idc = 1045;
+				x = 0.502061 * safezoneW + safezoneX;
+				y = 0.928842 * safezoneH + safezoneY;
+				w = 0.0670085 * safezoneW;
+				h = 0.0659757 * safezoneH;
+				colorBackground[] = {0,0,0,0.4};
+			};
+			class bg_earplugs: RLNT_RscText
+			{
+				idc = 1046;
+				x = 0.572162 * safezoneW + safezoneX;
 				y = 0.928842 * safezoneH + safezoneY;
 				w = 0.0670085 * safezoneW;
 				h = 0.0659757 * safezoneH;
@@ -3960,7 +3998,7 @@ class RscTitles
 			};
 			class frame_rifle_1: RLNT_RscText
 			{
-				idc = 1040;
+				idc = 1050;
 				x = 0.118567 * safezoneW + safezoneX;
 				y = 0.928842 * safezoneH + safezoneY;
 				w = 0.0773175 * safezoneW;
@@ -3969,7 +4007,7 @@ class RscTitles
 			};
 			class frame_rifle_2: RLNT_RscText
 			{
-				idc = 1041;
+				idc = 1051;
 				x = 0.211348 * safezoneW + safezoneX;
 				y = 0.928842 * safezoneH + safezoneY;
 				w = 0.0773175 * safezoneW;
@@ -3978,7 +4016,7 @@ class RscTitles
 			};
 			class frame_secondary: RLNT_RscText
 			{
-				idc = 1042;
+				idc = 1052;
 				x = 0.302067 * safezoneW + safezoneX;
 				y = 0.928842 * safezoneH + safezoneY;
 				w = 0.0566995 * safezoneW;
@@ -3987,7 +4025,7 @@ class RscTitles
 			};
 			class frame_painkiller: RLNT_RscText
 			{
-				idc = 1043;
+				idc = 1053;
 				x = 0.372168 * safezoneW + safezoneX;
 				y = 0.928842 * safezoneH + safezoneY;
 				w = 0.0566995 * safezoneW;
@@ -3996,8 +4034,26 @@ class RscTitles
 			};
 			class frame_bandage: RLNT_RscText
 			{
-				idc = 1044;
+				idc = 1054;
 				x = 0.442269 * safezoneW + safezoneX;
+				y = 0.928842 * safezoneH + safezoneY;
+				w = 0.0566995 * safezoneW;
+				h = 0.0659757 * safezoneH;
+				colorBackground[] = {0,0,0,0.4};
+			};
+			class frame_morphine: RLNT_RscText
+			{
+				idc = 1055;
+				x = 0.512370 * safezoneW + safezoneX;
+				y = 0.928842 * safezoneH + safezoneY;
+				w = 0.0566995 * safezoneW;
+				h = 0.0659757 * safezoneH;
+				colorBackground[] = {0,0,0,0.4};
+			};
+			class frame_earplugs: RLNT_RscText
+			{
+				idc = 1056;
+				x = 0.582471 * safezoneW + safezoneX;
 				y = 0.928842 * safezoneH + safezoneY;
 				w = 0.0566995 * safezoneW;
 				h = 0.0659757 * safezoneH;
@@ -4050,7 +4106,24 @@ class RscTitles
 				w = 0.0463905 * safezoneW;
 				h = 0.0549797 * safezoneH;
 			};
+			class img_morphine: RLNT_RscPicture
+			{
+				idc = 1025;
+				text = "#(argb,8,8,3)color(0,0,0,0)";
+				x = 0.517525 * safezoneW + safezoneX;
+				y = 0.935439 * safezoneH + safezoneY;
+				w = 0.0463905 * safezoneW;
+				h = 0.0549797 * safezoneH;
+			};
+			class img_earplugs: RLNT_RscPicture
+			{
+				idc = 1026;
+				text = "#(argb,8,8,3)color(0,0,0,0)";
+				x = 0.587626 * safezoneW + safezoneX;
+				y = 0.935439 * safezoneH + safezoneY;
+				w = 0.0463905 * safezoneW;
+				h = 0.0549797 * safezoneH;
+			};
 		};
 	};
-	*/
 };

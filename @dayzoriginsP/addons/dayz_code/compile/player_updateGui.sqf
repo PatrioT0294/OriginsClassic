@@ -1,4 +1,4 @@
-private["_display","_ctrlBlood","_ctrlBleed","_bloodVal","_ctrlFood","_ctrlThirst","_thirstVal","_foodVal","_ctrlTemp","_tempVal","_combatVal","_array","_ctrlEar","_ctrlEye","_ctrlHumanity","_ctrlCombat","_ctrlFracture","_visualText","_visual","_audibleText","_audible","_ctrlHumanityVal","_humanity","_ctrlhumanKills","_ctrlheroKills","_ctrlbanditKills","_ctrlzombieKills","_typeHumanity","_playerKills","_heroKills","_banditKills","_zombieKills","_hasPainkiller","_hasBandage","_displayHK","_dayz_onBack","_test_prim"];
+private["_display","_ctrlBlood","_ctrlBleed","_bloodVal","_ctrlFood","_ctrlThirst","_thirstVal","_foodVal","_ctrlTemp","_tempVal","_combatVal","_array","_ctrlEar","_ctrlEye","_ctrlHumanity","_ctrlCombat","_ctrlFracture","_visualText","_visual","_audibleText","_audible","_ctrlHumanityVal","_humanity","_ctrlhumanKills","_ctrlheroKills","_ctrlbanditKills","_ctrlzombieKills","_typeHumanity","_playerKills","_heroKills","_banditKills","_zombieKills","_primWeapon","_secWeapon","_ctrlHUDPrimWeapon","_ctrlHUDSecWeapon","_ctrlHUDHandgun","_ctrlHUDPainkiller","_ctrlHUDBandage","_handgun","_hasPainkiller","_hasBandage","_ctrlHUDMorphine","_ctrlHUDEarplugs","_hasMorphine","_earplugs"];
 disableSerialization;
 
 _foodVal = 		1 - (dayz_hunger / SleepFood);
@@ -35,6 +35,60 @@ _ctrlThirst ctrlSetTextColor 	[(Dayz_GUI_R + (0.3 * (1-_thirstVal))),(Dayz_GUI_G
 _ctrlTemp ctrlSetTextColor 		[(Dayz_GUI_R + (0.3 * (1-_tempVal))), (Dayz_GUI_G * _tempVal), _tempVal, 0.5];	// Color ranges from iceblue (cold) to red (hot)
 _ctrlCombat ctrlSetTextColor		[(Dayz_GUI_R + (0.3 * (1-_combatVal))),(Dayz_GUI_G * _combatVal),(Dayz_GUI_B * _combatVal), 0.5];
 
+//Hot keys
+_hasPainkiller    = 'ItemPainkiller' in magazines player;
+_hasBandage       = 'ItemBandage' in magazines player; 
+_hasMorphine      = 'ItemMorphine' in magazines player;
+_earplugs = player getVariable ["Earplugs","OFF"];
+diag_log format["TEST DEBUG _earplugs %1",_earplugs];
+_handgun = "";
+
+_ctrlHUDPrimWeapon = _displayHK displayCtrl 1020;
+_ctrlHUDSecWeapon = _displayHK displayCtrl 1021;
+_ctrlHUDHandgun = _displayHK displayCtrl 1022;
+_ctrlHUDPainkiller = _displayHK displayCtrl 1023;
+_ctrlHUDBandage = _displayHK displayCtrl 1024;
+_ctrlHUDMorphine = _displayHK displayCtrl 1025;
+_ctrlHUDEarplugs = _displayHK displayCtrl 1026;
+
+_primWeapon = getText (configFile >> 'CfgWeapons' >> (primaryWeapon player) >> 'picture');
+_secWeapon = getText (configFile >> 'CfgWeapons' >> (player getVariable ["dayz_onBack","EMPTY"]) >> 'picture');
+_ctrlHUDPrimWeapon ctrlSetText _primWeapon;
+_ctrlHUDSecWeapon ctrlSetText _secWeapon;
+		//Handgun Weapon
+    {
+      if ((getNumber(configFile >> 'cfgWeapons' >> _x >> 'Type')) == 2) then {
+        _handgun = _x;
+      };
+    } forEach weapons player;
+    if (_handgun == "") then {
+      _ctrlHUDHandgun ctrlSetText("");
+    } else {
+      _ctrlHUDHandgun ctrlSetText(getText(configFile >> 'cfgWeapons' >> _handgun >> 'picture'));
+    };
+  //Painkiller
+    if (_hasPainkiller) then {
+      _ctrlHUDPainkiller ctrlSetText(gettext(configFile >> 'cfgMagazines' >> 'itempainkiller' >> 'picture'));
+    } else {
+      _ctrlHUDPainkiller ctrlSetText("");
+    };
+  //Bandage
+    if (_hasBandage) then {
+      _ctrlHUDBandage ctrlSetText(gettext(configFile >> 'cfgMagazines' >> 'itembandage' >> 'picture'));
+    } else {
+      _ctrlHUDBandage ctrlSetText("");
+    };
+				if (_hasMorphine) then {
+      _ctrlHUDMorphine ctrlSetText(gettext(configFile >> 'cfgMagazines' >> 'itemmorphine' >> 'picture'));
+    } else {
+      _ctrlHUDMorphine ctrlSetText("");
+    };
+				if (_earplugs == "ON") then {
+      _ctrlHUDEarplugs ctrlSetText("\z\addons\dayz_code\gui\ori_gui\headphones_en_ca.paa");
+    } else {
+      _ctrlHUDEarplugs ctrlSetText("\z\addons\dayz_code\gui\ori_gui\headphones_ca.paa");
+    };
+
 /*
 //Kills
 _ctrlhumanKills = _display displayCtrl 1309;
@@ -51,11 +105,9 @@ _ctrlhumanKills ctrlSetText str(_playerKills);
 _ctrlheroKills ctrlSetText str(_heroKills);
 _ctrlbanditKills ctrlSetText str(_banditKills);
 _ctrlzombieKills ctrlSetText str(_zombieKills);
-*/
 
-/*
+
 //Hot keys
-/* Variables */
 _hasPainkiller  = 'ItemPainkiller' in magazines player;
 _hasBandage     = 'ItemBandage' in magazines player;
 

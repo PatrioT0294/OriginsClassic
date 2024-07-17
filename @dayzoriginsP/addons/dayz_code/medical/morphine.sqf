@@ -16,6 +16,7 @@ _animState = animationState player;
 r_doLoop = true;
 _started = false;
 _finished = false;
+[player,"morfin",0,false] call dayz_zombieSpeak;
 while {r_doLoop} do {
 	_animState = animationState player;
 	_isMedic = ["medic",_animState] call fnc_inString;
@@ -47,4 +48,5 @@ if (_finished) then {
 	r_interrupt = false;
 	[objNull, player, rSwitchMove,""] call RE;
 	player playActionNow "stop";
+	player addMagazine "ItemMorphine";
 };

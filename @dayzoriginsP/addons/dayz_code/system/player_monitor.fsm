@@ -864,7 +864,8 @@ class FSM
        "" \n
        "//GUI" \n
        "3 cutRsc [""playerStatusGUI"", ""PLAIN"",0];" \n
-       "//4 cutRsc [""HotKeys"", ""PLAIN"",0];" \n
+       "4 cutRsc [""HotKeys"", ""PLAIN"",0];" \n
+							"5 cutRsc [""DAYZ_Gear_display"", ""PLAIN"",0];" \n
        "//5 cutRsc [""playerKillScore"", ""PLAIN"",2];" \n
        "" \n
        "//Update GUI" \n

@@ -5,7 +5,8 @@ _state = uiNamespace getVariable ['DZ_displayUI', 0];
 // Hard code the GUI on and the Debug Monitor off
 if (dayzState != 0) then {
 	3 cutRsc ["playerStatusGUI", "PLAIN",0];
-	//4 cutRsc [""HotKeys"", ""PLAIN"",0];
+	4 cutRsc [""HotKeys"", ""PLAIN"",0];
+	5 cutRsc [""DAYZ_Gear_display"", ""PLAIN"",0];
 	//Update GUI
 	call player_updateGui;
 	call ui_initDisplay;
@@ -18,7 +19,8 @@ switch (_state) do {
 	case 0: {
 		if (dayzState != 0) then {
 			3 cutRsc ["playerStatusGUI", "PLAIN",0];
-			//4 cutRsc [""HotKeys"", ""PLAIN"",0];
+			4 cutRsc [""HotKeys"", ""PLAIN"",0];
+			5 cutRsc [""DAYZ_Gear_display"", ""PLAIN"",0];
 			//Update GUI
 			call player_updateGui;
 			call ui_initDisplay;
@@ -29,7 +31,8 @@ switch (_state) do {
 	case 1: {
 		if (dayzState != 1) then {
 			3 cutRsc ["playerStatusGUI", "PLAIN",0];
-			//4 cutRsc [""HotKeys"", ""PLAIN"",0];
+			4 cutRsc [""HotKeys"", ""PLAIN"",0];
+			5 cutRsc [""DAYZ_Gear_display"", ""PLAIN"",0];
 			//Update GUI
 			call player_updateGui;
 			call ui_initDisplay;

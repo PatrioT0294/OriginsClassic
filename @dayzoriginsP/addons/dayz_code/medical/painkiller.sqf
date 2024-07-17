@@ -9,6 +9,7 @@ r_action = false;
 if (vehicle player == player) then {
 	//not in a vehicle
 	player playActionNow "Gear";
+ [player,"paintk",0,false] call dayz_zombieSpeak;
 };
 
 if (_unit == player) then {

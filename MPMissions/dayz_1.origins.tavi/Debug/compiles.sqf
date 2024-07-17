@@ -248,7 +248,8 @@ if (!isDedicated) then {
 	};
 	*/
 	dayz_spaceInterrupt = {
-		private ["_dikCode", "_handled"];
+		private ["_dikCode", "_handled", "_handgun"];
+		_handgun = "";
 		_dikCode = 	_this select 1;
 		_altState =	_this select 4;
 		_handled = false;
@@ -302,24 +303,41 @@ if (!isDedicated) then {
         };
     };
 }; 
-		
-		//Earplugs
-		if (_dikCode == 0x16) then
+		//Hotkeys
+		if ((_dikCode ==  0x05) and ('ItemPainkiller' in magazines player)) then
+		  {_id = [0,0,0,[player]] execVM "\z\addons\dayz_code\medical\painkiller.sqf";};
+		if ((_dikCode ==  0x06) and ('ItemBandage' in magazines player))then
+		  {_id = [0,0,0,[player]] execVM "\z\addons\dayz_code\medical\bandage.sqf";};
+		if ((_dikCode ==  0x07) and ('ItemMorphine' in magazines player)) then
+		  {_id = [0,0,0,[player]] execVM "\z\addons\dayz_code\medical\morphine.sqf";};
+		if (_dikCode ==  0x08) then
     {
-								diag_log "TEST DEBUG: pressed U MP";
-								diag_log ("TEST DEBUG: soundVolume " + str(soundVolume) );
         if (soundVolume == 1) then {
-												diag_log "TEST DEBUG: soundVolume == 1";
             1 fadeSound 0.25;
+												player setVariable ["Earplugs", "ON", true];
         }
             else
         {
-												diag_log "TEST DEBUG: soundVolume == 2";
             1 fadeSound 1;
+												player setVariable ["Earplugs", "OFF", true];
         };
     };
+		if (_dikCode == 0x04) then 
+				{
+						_handgun = "";
+						{ 
+								if ((getNumber(configFile >> 'cfgWeapons' >> _x >> 'Type')) == 2) then 
+								   { 
+											_handgun = _x;
+											}; 
+						} forEach weapons player;
+					if (_handgun == "") exitWith {diag_log format["TEST DEBUG exitWith"]};
+					if (_handgun != "") then {
+					player selectWeapon _handgun;
+					}; 
+				};
 		_handled
-	};
+};
 	
 	/*
 	test_function = {

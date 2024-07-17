@@ -1,4 +1,4 @@
-private["_class","_position","_dir","_group","_oldUnit","_newUnit","_currentWpn","_muzzles","_currentAnim","_currentCamera","_dayz_onBack"];
+private["_class","_position","_dir","_group","_oldUnit","_newUnit","_currentWpn","_muzzles","_currentAnim","_currentCamera","_dayz_onBack","_earplugs"];
 _class 			= _this;
 
 _position 		= getPosATL player;
@@ -19,6 +19,9 @@ private ["_playerUID"];
 	} else {
 		_playerUID = getPlayerUID player;
 	};
+
+// Earplugs
+_earplugs = player getVariable ["Earplugs","OFF"];
 
 //BackUp Weapons and Mags
 private ["_weapons","_magazines","_primweapon","_secweapon"];
@@ -89,6 +92,8 @@ private ["_newBackpackType","_backpackWpn","_backpackMag"];
 	_newUnit 	setDir _dir;
 	_newUnit setVariable ["dayz_onBack",_dayz_onBack,true];
  _newUnit setVariable ["dayz_onBackActive", false, true];
+	
+	_newUnit setVariable ["Earplugs",_earplugs, true];
 
 //Clear New Character
 	{_newUnit removeMagazine _x;} forEach  magazines _newUnit;
@@ -191,6 +196,8 @@ private ["_newBackpackType","_backpackWpn","_backpackMag"];
 	player setVariable ["bodyName",dayz_playerName,true];
 	player setVariable ["dayz_onBack", _dayz_onBack, true];
  player setVariable ["dayz_onBackActive", false, true]; 
+	
+	player setVariable ["Earplugs",_earplugs, true];
 
 	_playerUID=getPlayerUID player;
 	_playerObjName = format["player%1",_playerUID];
